@@ -1,16 +1,17 @@
 /*
  * app.js
  *
- * Client-side script to load and display material events from events.json. It
- * fetches the JSON feed located one directory above the site (../data/events.json)
- * and renders each event as a single-line entry in the DOM. If the feed is
+ * Client-side script to load and display material events from events.json. When
+ * deployed (e.g. via GitHub Pages), the JSON feed resides in the same
+ * directory as this script.
+ * It renders each event as a single-line entry in the DOM. If the feed is
  * empty, a placeholder message is shown.
  */
 
 async function loadEvents() {
   const container = document.getElementById('event-container');
   try {
-    const response = await fetch('../data/events.json');
+    const response = await fetch('events.json');
     if (!response.ok) {
       throw new Error('HTTP ' + response.status);
     }
