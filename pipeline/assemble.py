@@ -4,9 +4,10 @@ assemble.py
 
 Assemble the final event feed by combining data from extraction, geocoding,
 deduplication and verification. The output is written to
-``data/events.json``. In a real system, input would be piped from previous
-pipeline steps. Here we build a simple, hard-coded example to illustrate
-the format.
+``data/events.json`` and copied to ``site/events.json`` for deployment on
+static hosts like GitHub Pages. In a real system, input would be piped from
+previous pipeline steps. Here we build a simple, hard-coded example to
+illustrate the format.
 """
 
 from __future__ import annotations
@@ -66,7 +67,8 @@ def write_events(events: List[Dict[str, Any]], path: str = 'data/events.json') -
 def main() -> None:
     events = build_sample_events()
     write_events(events)
-    print(f"Wrote {len(events)} event(s) to data/events.json")
+    write_events(events, 'site/events.json')
+    print(f"Wrote {len(events)} event(s) to data/events.json and site/events.json")
 
 
 if __name__ == '__main__':
