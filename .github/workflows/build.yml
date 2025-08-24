@@ -1,0 +1,34 @@
+name: build
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unzip code
+        run: unzip -o material-news.zip
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r material-news/requirements.txt
+      - name: Run pipeline
+        run: |
+          cd material-news
+          python pipeline/fetch.py
+          python pipeline/extract.py
+          python pipeline/geocode.py
+          python pipeline/dedupe.py
+          python pipeline/verify.py
+          python pipeline/assemble.py
+          pytest -q
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: material-news/site
+          github_token: ${{ secrets.GITHUB_TOKEN }}
