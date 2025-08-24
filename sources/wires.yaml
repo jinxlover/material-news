@@ -1,0 +1,4 @@
+# Configured wire services for Material News
+feeds:
+  reuters: "https://www.reuters.com/rssFeed/worldNews"
+  ap: "https://apnews.com/hub/ap-top-news?output=RSS"

@@ -1,0 +1,4 @@
+# Hazard feeds such as earthquakes, weather alerts, etc.
+hazards:
+  usgs_earthquakes: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.atom"
+  noaa_warnings: "https://alerts.weather.gov/cap/us.php?x=0"
