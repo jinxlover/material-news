@@ -1,0 +1,39 @@
+/* styles.css
+ *
+ * A minimal stylesheet for Material News. The goal is legibility and
+ * simplicity; there are no images or colours beyond black and white.
+ */
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 1rem;
+  background: #ffffff;
+  color: #222;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+header p {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.event-line {
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+footer {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #666;
+}

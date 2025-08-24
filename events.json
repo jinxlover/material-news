@@ -1,0 +1,44 @@
+[
+  {
+    "id": "evt_2025-01-01T00:00:00Z_demo",
+    "event_type": "explosion",
+    "headline": "Explosion; 3 killed; 5 injured.",
+    "actors": [
+      "Unknown"
+    ],
+    "targets": [
+      "warehouse"
+    ],
+    "location": {
+      "name": "Example City, EX",
+      "lat": null,
+      "lon": null,
+      "iso2": "EX",
+      "admin1": null
+    },
+    "when_utc": "2025-01-01T00:00:00Z",
+    "metrics": {
+      "killed": 3,
+      "injured": 5,
+      "magnitude": null,
+      "area_burned_km2": null
+    },
+    "sources": [
+      {
+        "name": "Reuters",
+        "url": "http://example.com",
+        "first_seen": "2025-01-01T01:00:00Z"
+      },
+      {
+        "name": "AP",
+        "url": "http://example.org",
+        "first_seen": "2025-01-01T01:05:00Z"
+      }
+    ],
+    "confidence": 0.6,
+    "notes": "Sample event.",
+    "updated_at": "2025-01-01T01:06:00Z",
+    "method": "rule",
+    "version": 1
+  }
+]
