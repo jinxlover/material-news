@@ -10,10 +10,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Unzip code
-        run: unzip -o material-news.zip
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Run fetch
+        run: python pipeline/fetch.py
+      - name: Run extract
+        run: python pipeline/extract.py
+      - name: Run geocode
+        run: python pipeline/geocode.py
+      - name: Run dedupe
+        run: python pipeline/dedupe.py
+      - name: Run verify
+        run: python pipeline/verify.py
+      - name: Assemble feed
+        run: python pipeline/assemble.py
+      - name: Run tests
+        run: pytest -q
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          publish_dir: material-news/site
+          publish_dir: ./site
           github_token: ${{ secrets.GITHUB_TOKEN }}
